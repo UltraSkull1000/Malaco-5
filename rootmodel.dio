@@ -1,0 +1,147 @@
+<mxfile host="65bd71144e" scale="1" border="0">
+    <diagram id="2hOOit8vrmZJprre73Cp" name="Page-1">
+        <mxGraphModel dx="878" dy="662" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="43" value="" style="whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="40" width="840" height="560" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=ERmany;endFill=0;" edge="1" parent="1" source="2" target="9">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="320" y="330"/>
+                            <mxPoint x="320" y="199"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="&amp;nbsp;Discord" style="triangle;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+                    <mxGeometry x="140" y="290" width="70" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Malaco V5" style="swimlane;whiteSpace=wrap;html=1;gradientColor=none;perimeterSpacing=3;swimlaneFillColor=default;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="80" width="300" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="9" source="10" target="15">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="89" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="9" source="10">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="218" y="60" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="90" y="120"/>
+                            <mxPoint x="90" y="150"/>
+                            <mxPoint x="218" y="150"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="ShardedClient" style="rounded=0;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="33.75" y="80" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Input is filtered by Shard Region" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="9" vertex="1">
+                    <mxGeometry x="91.88" y="30" width="95" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Event Handler" style="rounded=0;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="33.75" y="180" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="9" source="20" target="25">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="92" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="9" source="20" target="91">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="[Commands]" style="rounded=0;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="33.75" y="260" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;startArrow=classic;startFill=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="9" source="15" target="20" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="73.75000000000023" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="Statistics&lt;br&gt;Class" style="rhombus;whiteSpace=wrap;html=1;" parent="9" vertex="1">
+                    <mxGeometry x="33.75" y="380" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="86" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;" edge="1" parent="9" source="85" target="10">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="IN" style="triangle;whiteSpace=wrap;html=1;gradientColor=none;rotation=90;align=left;" vertex="1" parent="9">
+                    <mxGeometry x="55.629999999999995" y="30" width="36.25" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="90" value="OUT" style="triangle;whiteSpace=wrap;html=1;gradientColor=none;rotation=-90;align=left;" vertex="1" parent="9">
+                    <mxGeometry x="200" y="30" width="36.25" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="&quot;OESTUS&quot; Library" style="swimlane;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="9">
+                    <mxGeometry x="152.18" y="218.13" width="131.88" height="163.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="118" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="91" source="94" target="96">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="94" value="Dice Parser" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="91">
+                    <mxGeometry x="10.939999999999998" y="30" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="95" value="Deck Manager" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="91">
+                    <mxGeometry x="70.94" y="30" width="50" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=classic;startFill=1;endArrow=classic;endFill=1;" edge="1" parent="91" source="96" target="95">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="96" value="RNG" style="whiteSpace=wrap;html=1;aspect=fixed;gradientColor=none;" vertex="1" parent="91">
+                    <mxGeometry x="45.94" y="113.75" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="119" value="Cryptographically Secure Random" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="9">
+                    <mxGeometry x="152.18" y="180" width="131.87" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=classic;startFill=1;curved=1;" edge="1" parent="1" source="25" target="41">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="660" y="520" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="75" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;endArrow=block;endFill=1;" edge="1" parent="1" source="41" target="47">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="820" y="500"/>
+                            <mxPoint x="820" y="580"/>
+                            <mxPoint x="330" y="580"/>
+                            <mxPoint x="330" y="440"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="Player Data&lt;br&gt;MongoDB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="460" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="Stored in Cloud" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="820" y="460" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;h1 style=&quot;&quot;&gt;Malaco 5&lt;/h1&gt;&lt;p style=&quot;&quot;&gt;Maybe this one will be infinitely scalable this time! Should be able to be listed as a proper application via Discord's normal distribution methods as opposed to some other unnamed applications.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;align=left;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="60" width="240" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" style="edgeStyle=orthogonalEdgeStyle;html=1;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="47" target="77">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="&quot;DALMUT&quot;&lt;br&gt;Admin Interface" style="shape=trapezoid;perimeter=trapezoidPerimeter;whiteSpace=wrap;html=1;fixedSize=1;gradientColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="118.75" y="395" width="125" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="Allows for stability analysis and further optimization&lt;br&gt;&lt;br&gt;Can also issue unit tests to ensure correct configuration of new shards" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="480" width="162.5" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="Uses Discord.Net&lt;br&gt;to interface" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="270" width="82.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Due to the sharded nature of this design, Cloud storage of player data is necessary for access centralization.&lt;/span&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="370" width="160" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="83" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;endArrow=classic;endFill=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="77" target="2">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="330" y="330"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="77" value="Presence Generator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="355" width="80" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
