@@ -1,10 +1,12 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using Malaco5.Entities;
 namespace Malaco5;
 public class Malaco5()
 {
     public static DiscordSocketClient? _client;
     public static CommandHandler? commandHandler;
+    public static DateTime startTime;
 
     public static void Main(string[] args)
     {
@@ -36,6 +38,8 @@ public class Malaco5()
         {
             Thread.Sleep(100);
         }
+
+        startTime = DateTime.Now;
         await Task.Delay(-1);
     }
 

@@ -3,6 +3,7 @@ using System.Reflection;
 using Discord.Commands;
 using Discord.Interactions;
 using Discord.WebSocket;
+using Malaco5.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Malaco5;
@@ -32,6 +33,7 @@ public class CommandHandler
         Malaco5.Print("Finished Preparing Services.");
     }
     private async Task HandleInteraction(SocketInteraction interaction){
+        User.EnsureUser(interaction.User.Id);
         var ctx = new SocketInteractionContext(_client, interaction);
         await _interactionService.ExecuteCommandAsync(ctx, _serviceProvider);
     }
