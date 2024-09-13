@@ -4,6 +4,7 @@ namespace Malaco5.Entities;
 
 public class User{
     public ulong UserId { get; set; }
+    public required string lastRoll {get; set;} = "";
     public required Dictionary<string, string> savedRolls { get; set; }
     const string _db = "./db/data.db";
 
@@ -33,10 +34,11 @@ public class User{
         using (var db = new LiteDatabase(_db)){
             var collection = db.GetCollection<User>("users");
             var results = collection.Query().Where(x => x.UserId == userId);
-            existed = (results.Count() != 0);
+            existed = results.Count() != 0;
             if(!existed)
                 return new User(){
                     UserId = userId,
+                    lastRoll = "",
                     savedRolls = new Dictionary<string, string>()
                 };
             return results.First();
