@@ -1,13 +1,16 @@
 using Discord.Interactions;
 using Malaco5.Entities;
 using Oestus;
+using static Malaco5.Modules.MalacoAutocompletes;
+
+namespace Malaco5.Modules;
 
 public class General() : InteractionModuleBase
 {
     [SlashCommand("uptime", "Checks the uptime of the current shard", runMode: RunMode.Async)]
     public async Task Uptime()
     {
-        await RespondAsync($"The current shard has been up for {(DateTime.Now - Malaco5.Malaco5.startTime).ToString()}.", ephemeral: true);
+        await RespondAsync($"The current shard has been up for {(DateTime.Now - Malaco5.startTime).ToString()}.", ephemeral: true);
     }
     
     [SlashCommand("ping", "Checks the ping to the current shard", runMode: RunMode.Async)]
@@ -93,4 +96,5 @@ public class General() : InteractionModuleBase
     }
 
     string ProcessQuery(string q) => q.Replace(" ", "").ToLower();
+    
 }

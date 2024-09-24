@@ -17,13 +17,17 @@ public class Malaco5()
             string? t = Console.ReadLine();
             File.WriteAllText("token.txt", t);
         }
+        if(!Directory.Exists("./db"))
+            Directory.CreateDirectory("./db");
         Print("Starting Asyncronous Operation...");
         MainAsync().GetAwaiter().GetResult();
     }
 
     public static async Task MainAsync()
     {
-        _client = new DiscordSocketClient();
+        _client = new DiscordSocketClient(new DiscordSocketConfig(){
+            UseInteractionSnowflakeDate = false
+        });
 
         _client.Log += LogClientMessage;
         _client.JoinedGuild += LogGuildJoin;

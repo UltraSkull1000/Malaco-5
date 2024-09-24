@@ -4,6 +4,7 @@ using Discord.Commands;
 using Discord.Interactions;
 using Discord.WebSocket;
 using Malaco5.Entities;
+using Malaco5.Modules;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Malaco5;
@@ -42,5 +43,6 @@ public class CommandHandler
     => new ServiceCollection()
     .AddSingleton(_interactionService)
     .AddSingleton(typeof(General))
+    .AddSingleton(typeof(MalacoAutocompletes))
     .BuildServiceProvider();
 }
