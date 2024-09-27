@@ -33,7 +33,7 @@ public class General() : InteractionModuleBase
                 File.Delete($"{Context.Interaction.Id}.txt");
             }
             else
-                await RespondAsync($"{Context.User.Mention} rolled `{query}` for a total of **{result}**! `{resultString}`");
+                await RespondAsync($"{Context.User.Mention} rolled `{query.Replace("dm10", "rt")}` for a total of **{result}**! `{resultString}`");
 
             var u = User.GetUser(Context.User.Id, out var _);
             u.lastRoll = query;
@@ -95,6 +95,6 @@ public class General() : InteractionModuleBase
         else await RespondAsync("You have no saved rolls to delete!", ephemeral: true);
     }
 
-    string ProcessQuery(string q) => q.Replace(" ", "").ToLower();
+    string ProcessQuery(string q) => q.Replace(" ", "").Replace("rt", "dm10").ToLower();
     
 }
