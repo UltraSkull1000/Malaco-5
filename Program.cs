@@ -6,6 +6,7 @@ public class Malaco5()
 {
     public static DiscordSocketClient? _client;
     public static CommandHandler? commandHandler;
+    public static StatusHandler? statusHandler;
     public static DateTime startTime;
 
     public static void Main(string[] args)
@@ -34,6 +35,7 @@ public class Malaco5()
         _client.LeftGuild += LogGuildLeave;
 
         commandHandler = new CommandHandler(_client);
+        statusHandler = new StatusHandler(_client);
 
         await _client.LoginAsync(TokenType.Bot, File.ReadAllText("token.txt"));
         await _client.StartAsync();
