@@ -7,19 +7,19 @@ namespace Malaco5.Modules;
 
 public class General() : InteractionModuleBase
 {
-    [SlashCommand("uptime", "Checks the uptime of the current shard", runMode: RunMode.Async)]
+    [SlashCommand("uptime", "Checks the uptime of the current shard")]
     public async Task Uptime()
     {
         await RespondAsync($"The current shard has been up for {(DateTime.Now - Malaco5.startTime).ToString()}.", ephemeral: true);
     }
     
-    [SlashCommand("ping", "Checks the ping to the current shard", runMode: RunMode.Async)]
+    [SlashCommand("ping", "Checks the ping to the current shard")]
     public async Task Ping()
     {
         await RespondAsync($"*Pong! {(DateTime.Now - Context.Interaction.CreatedAt).ToString("fff")}ms*", ephemeral: true);
     }
 
-    [SlashCommand("roll", "Rolls Dice!", runMode: RunMode.Async)]
+    [SlashCommand("roll", "Rolls Dice!")]
     public async Task RollDice([Autocomplete(typeof(RollAutocomplete))] string query)
     {
         query = ProcessQuery(query);
@@ -45,7 +45,7 @@ public class General() : InteractionModuleBase
         }
     }
 
-    [SlashCommand("saveroll", "Save a roll that you use frequently!", runMode: RunMode.Async)]
+    [SlashCommand("saveroll", "Save a roll that you use frequently!")]
     public async Task SaveRoll(string name, string roll)
     {
         roll = ProcessQuery(roll);

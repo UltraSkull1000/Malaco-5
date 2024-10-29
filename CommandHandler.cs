@@ -6,6 +6,7 @@ using Discord.Interactions;
 using Discord.WebSocket;
 using Malaco5.Entities;
 using Malaco5.Modules;
+using Malaco5.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Malaco5;
@@ -53,6 +54,7 @@ public class CommandHandler
     => new ServiceCollection()
     .AddSingleton(_interactionService)
     .AddSingleton(typeof(General))
+    .AddSingleton(typeof(Music))
     .AddSingleton(typeof(MalacoAutocompletes))
     .BuildServiceProvider();
 }
