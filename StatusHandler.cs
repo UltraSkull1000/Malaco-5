@@ -22,7 +22,7 @@ public class StatusHandler{
         }
         _client.Ready -= OnReady;
         await _client.SetCustomStatusAsync($"Malaco Successfully Started! {DateTime.Now.ToShortTimeString()}");
-        var timer = new Timer(20000);
+        var timer = new Timer(600000);
         timer.Elapsed += async (s, e) => await _client.SetCustomStatusAsync(statuses[OestusRNG.Next(0,statuses.Length)]);
         timer.Start();
         Malaco5.Print("Finished Preparing Status Handler.");

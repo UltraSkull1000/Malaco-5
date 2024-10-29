@@ -18,7 +18,10 @@ public class CommandHandler
     public CommandHandler(DiscordSocketClient _client)
     {
         this._client = _client;
-        _interactionService = new InteractionService(_client);
+        _interactionService = new InteractionService(_client, new InteractionServiceConfig(){
+            DefaultRunMode = Discord.Interactions.RunMode.Async,
+            UseCompiledLambda = true
+        });
         _serviceProvider = SetupServices();
         _client.Ready += OnReady;
 
@@ -38,7 +41,13 @@ public class CommandHandler
     private async Task HandleInteraction(SocketInteraction interaction){
         User.EnsureUser(interaction.User.Id);
         var ctx = new SocketInteractionContext(_client, interaction);
-        await _interactionService.ExecuteCommandAsync(ctx, _serviceProvider);
+        var result = await _interactionService.ExecuteCommandAsync(ctx, _serviceProvider);
+        if(!result.IsSuccess)
+        {
+            Malaco5.Print(result.ErrorReason, ConsoleColor.Red);
+        }
+        else if(interaction.Type == InteractionType.ApplicationCommand)
+            Malaco5.Print($"{interaction.User.Username} >> Executed Application Command", ConsoleColor.Blue);
     }
 
     private IServiceProvider SetupServices()
