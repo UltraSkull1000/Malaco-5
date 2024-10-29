@@ -18,6 +18,11 @@ public static class AudioService
         servers.Add(guildId, server);
         return server;
     }
+    public static void DeleteAudioServer(ulong guildId){
+        if(servers.ContainsKey(guildId)){
+            servers.Remove(guildId);
+        }
+    }
 }
 
 public class AudioServer{
@@ -87,14 +92,13 @@ public class AudioServer{
     {
         if (queue.Count() == 0)
             throw new NullReferenceException("Queue is empty.");
-        Play(queue.Dequeue()).GetAwaiter().GetResult();
-        status = Status.Idle;
+        _ = Play(queue.Dequeue());
     }
 
     public async Task Play(Track track)
     {
         status = Status.Playing;
-        using (var ffmpeg = CreateStream(track.path))
+        using (var ffmpeg = CreateStream(Path.GetFullPath(track.path)))
         using (var output = ffmpeg.StandardOutput.BaseStream)
         using (var discord = audioClient.CreatePCMStream(AudioApplication.Mixed))
         {
@@ -106,7 +110,11 @@ public class AudioServer{
             finally
             {
                 await discord.FlushAsync();
+                if(loop){
+                    Enqueue(track);
+                }
                 currentTrack = null;
+                status = Status.Idle;
                 AudioLapsed?.Invoke(this, EventArgs.Empty);
             }
         }

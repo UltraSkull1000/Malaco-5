@@ -61,5 +61,23 @@ public class MalacoAutocompletes
             return AutocompletionResult.FromSuccess(suggestions.Take(25));
         }
     }
+
+    public class MusicAutocomplete : AutocompleteHandler
+    {
+        public override async Task<AutocompletionResult> GenerateSuggestionsAsync(IInteractionContext context, IAutocompleteInteraction autocompleteInteraction, IParameterInfo parameter, IServiceProvider services)
+        {
+            List<AutocompleteResult> suggestions = new List<AutocompleteResult>();
+            string current = (string)autocompleteInteraction.Data.Current.Value;
+            if(!Directory.Exists("music"))
+                Directory.CreateDirectory("music");
+            var files = Directory.GetFiles("music", $"{current}*");
+            foreach (var file in files){
+                suggestions.Add(new AutocompleteResult(file, file));
+            }
+            if(suggestions.Count() == 0)
+                return AutocompletionResult.FromError(new NullReferenceException("No music found in folder."));
+            return AutocompletionResult.FromSuccess(suggestions.Take(25));
+        }
+    }
 }
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
