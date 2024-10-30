@@ -35,8 +35,10 @@ public class MalacoAutocompletes
             }
 
             string current = (string)autocompleteInteraction.Data.Current.Value;
-            if (current != "")
+            if (current != ""){
+                suggestions = suggestions.Where(x => x.Name.StartsWith(current)).ToList();
                 suggestions.Insert(0, new AutocompleteResult(current, current));
+            }
 
             return AutocompletionResult.FromSuccess(suggestions.Take(25));
         }
@@ -56,6 +58,11 @@ public class MalacoAutocompletes
                 {
                     suggestions.Add(new AutocompleteResult(o.Key, o.Key));
                 }
+            }
+
+                        string current = (string)autocompleteInteraction.Data.Current.Value;
+            if (current != ""){
+                suggestions = suggestions.Where(x => x.Name.StartsWith(current)).ToList();
             }
 
             return AutocompletionResult.FromSuccess(suggestions.Take(25));
