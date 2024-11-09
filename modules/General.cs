@@ -1,3 +1,4 @@
+using System.Text;
 using Discord.Interactions;
 using Malaco5.Entities;
 using Oestus;
@@ -12,37 +13,83 @@ public class General() : InteractionModuleBase
     {
         await RespondAsync($"The current shard has been up for {(DateTime.Now - Malaco5.startTime).ToString()}.", ephemeral: true);
     }
-    
+
     [SlashCommand("ping", "Checks the ping to the current shard")]
     public async Task Ping()
     {
         await RespondAsync($"*Pong! {(DateTime.Now - Context.Interaction.CreatedAt).ToString("fff")}ms*", ephemeral: true);
     }
 
+    public string Roll(string query, out string filepath)
+    {
+        query = ProcessQuery(query);
+        filepath = "";
+        int result = Dice.Parse(query, out var resultString);
+        if (resultString.Length > 1900)
+        {
+            filepath = $"{Context.Interaction.Id}.txt";
+            if (!File.Exists(filepath))
+                File.WriteAllText(filepath, resultString);
+            else
+            {
+                var writer = File.OpenWrite(filepath);
+                writer.Write(Encoding.UTF8.GetBytes($"\n{resultString}"));
+                writer.Close();
+            }
+        }
+        return $"**{result}**! `{resultString}`";
+    }
+
     [SlashCommand("roll", "Rolls Dice!")]
     public async Task RollDice([Autocomplete(typeof(RollAutocomplete))] string query)
     {
-        query = ProcessQuery(query);
-        try
-        {
-            int result = Dice.Parse(query, out var resultString);
-            if (resultString.Length > 1900)
-            {
-                File.WriteAllText($"{Context.Interaction.Id}.txt", resultString);
-                await RespondWithFileAsync($"{Context.Interaction.Id}.txt", text: $"{Context.User.Mention} rolled `{query}` for a total of **{result}**!");
-                File.Delete($"{Context.Interaction.Id}.txt");
-            }
-            else
-                await RespondAsync($"{Context.User.Mention} rolled `{query.Replace("dm10", "rt")}` for a total of **{result}**! `{resultString}`");
+        var res = Roll(query, out string file);
+        if (file != "")
+            await RespondWithFileAsync(file, text: res);
+        else await RespondAsync($"{Context.User.Mention} rolled `{query.Replace("dm10", "rt")}` for a total of {res}!");
+        
+        var u = User.GetUser(Context.User.Id, out var _);
+        u.lastRoll = query;
+        u.UpdateUser();
+    }
 
-            var u = User.GetUser(Context.User.Id, out var _);
-            u.lastRoll = query;
-            u.UpdateUser();
+    [SlashCommand("rollmany", "Rolls Multiple sets of Dice!")]
+    public async Task RollManyDice([Autocomplete(typeof(RollAutocomplete))] string query, int repeat)
+    {
+        if (repeat == 1){
+            await RollDice(query);
+            return;
         }
-        catch (Exception ex)
+
+        if(repeat > 16){
+            await RespondAsync("You don't need to roll that many dice!", ephemeral:true);
+            return;
+        }
+
+        List<string> result = new List<string>();
+        bool exception = false;
+        Exception? exc = null;
+
+        for(int i = 0; i < repeat; i++)
         {
-            await RespondAsync(ex.Message, ephemeral: true);
+            try{
+            result.Add(Roll(query, out var filepath));
+            }
+            catch(Exception ex){
+                exception = true;
+                exc = ex;
+            }
         }
+
+        if(exception && exc != null){
+            await RespondAsync(exc.Message, ephemeral:true);
+            return;
+        }
+        await RespondAsync($"{Context.User.Mention} rolled `{query}` {repeat} times! \n\n{string.Join("\n", result)}");
+
+        var u = User.GetUser(Context.User.Id, out var _);
+        u.lastRoll = query;
+        u.UpdateUser();
     }
 
     [SlashCommand("saveroll", "Save a roll that you use frequently!")]
@@ -96,5 +143,5 @@ public class General() : InteractionModuleBase
     }
 
     string ProcessQuery(string q) => q.Replace(" ", "").Replace("rt", "dm10").ToLower();
-    
+
 }
