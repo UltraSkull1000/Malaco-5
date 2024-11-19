@@ -2,7 +2,7 @@
 
 malaco: Malaco\ 5.generated.sln
 	dotnet build Malaco\ 5.csproj -o build
-	mkdir Malaco/db
+	mkdir build/db
 	cp samples/status.txt build/status.txt
 
 clean: 
