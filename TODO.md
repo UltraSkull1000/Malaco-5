@@ -1,0 +1,32 @@
+# Malaco 5 TODO list
+- [ ] Commands: Add dice rolling functions
+  - [x] Commands: Add basic dice rolling 
+  - [x] LiteDB: Add saved rolls and last roll variables
+  - [x] Autocorrect: Add query autofill with saved rolls and last roll.
+  - [ ] Autocorrect: Replace typed saved rolls with their internal value on command execution.
+  - [x] Commands: Add repeated dice rolling (rollmany)
+  - [ ] Commands: Add roll against dc to rollmany
+  - [ ] Autocorrect: Enable advanced query calculation and filtering.
+  - [ ] Commands: Add advanced modal rolling
+  - [ ] LiteDB: Allow saving of rolling modals
+  - [ ] Commands: Add conditional rolling (e.g. Hit this DC, Automatically Roll damage)
+  - [ ] Commands: Add DM calls (e.g. roll for initiative with a button to automatically join initiative via modal rolling)
+- [ ] Statistics: Rolling average for standard TTRPG dice
+  - [ ] LiteDB: Add table for statistical analysis
+  - [ ] LiteDB: Add user-focused dice rolling stats
+  - [ ] Statistics: Add functions for accessing LiteDB Tables for Read & Write. 
+  - [ ] Statistics: Add static functions for gathering and calculating dice rolling statistics.
+  - [ ] Statistics: Add chart generation
+  - [ ] Commands: Add statistics-based commands, accepting a fixed set of ttrpg dice to analyze on user, server, and global levels.
+  - [ ] Status: Add statistics-based statuses for display 
+- [ ] Music: Add music functionality
+  - [ ] Meta: Allow configuration to disable Music commands
+  - [x] Music: Add ffmpeg and opus support
+  - [x] Music: Add local music folder
+  - [x] Commands: Add basic Music commands
+    - [x] Music: join
+    - [x] Music: play
+    - [x] Music: queue
+    - [ ] Music: skip
+    - [x] Music: disconnect
+  - [ ] Commands: Allow users to upload their own music or add direct links to music. 

@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
+    <AssemblyName>Malaco</AssemblyName>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>Malaco_5</RootNamespace>
+    <RootNamespace>Malaco5</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>

@@ -1,10 +1,9 @@
 .PHONY: clean
 
 malaco: Malaco\ 5.generated.sln
-	dotnet build Malaco\ 5.generated.sln -o Malaco
+	dotnet build Malaco\ 5.csproj -o build
 	mkdir Malaco/db
-	cp samples/status.txt Malaco/status.txt
+	cp samples/status.txt build/status.txt
 
 clean: 
-	rm -r Malaco
-	rm -r bin
+	rm -r build
